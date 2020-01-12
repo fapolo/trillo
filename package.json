@@ -1,0 +1,36 @@
+{
+  "name": "trillo",
+  "version": "1.0.0",
+  "description": "Landing page for trillo",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "node-sass src/sass/styles.scss src/styles.css -w",
+    "run-gulp": "gulp clean & gulp styles & gulp scripts & gulp html & gulp components & gulp assets"
+  },
+  "author": "Fabricio Polo",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cli": "^2.2.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglify-es": "^2.0.0",
+    "node-sass": "^4.13.0",
+    "run-sequence": "^2.2.1"
+  },
+  "browserslist": [
+    "ie >= 10",
+    "ie_mob >= 10",
+    "ff >= 30",
+    "chrome >= 34",
+    "safari >= 7",
+    "opera >= 23",
+    "ios >= 7",
+    "android >= 4.4",
+    "bb >= 10"
+  ]
+}
