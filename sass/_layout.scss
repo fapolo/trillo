@@ -1,0 +1,32 @@
+.global-container {
+  max-width: 100rem;
+  margin: 8rem auto;
+  background-color: var(--clr-gray-light-1);
+  box-shadow: var(--shadow-dark);
+
+  min-height: 30rem;
+}
+
+.page-header {
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--clr-gray-light-2);
+}
+
+.main-content {
+  display: flex;
+}
+
+.sidebar-menu {
+  background-color: var(--clr-gray-dark-1);
+
+  //não cresce, não estica, 18% = width que ocupará (flex-basis)
+  flex: 0 0 18%;
+}
+
+.hotel-overview {
+  background-color: #fff;
+
+  //ocupa todo o espaço restante no container
+  flex: 1;
+}

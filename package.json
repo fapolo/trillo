@@ -4,7 +4,7 @@
   "description": "Landing page for trillo",
   "main": "index.js",
   "scripts": {
-    "compile-sass": "node-sass src/sass/styles.scss src/styles.css -w",
+    "compile-sass": "node-sass sass/main.scss css/main.css -w",
     "run-gulp": "gulp clean & gulp styles & gulp scripts & gulp html & gulp components & gulp assets"
   },
   "author": "Fabricio Polo",
