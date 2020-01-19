@@ -1,0 +1,288 @@
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// BUTTONS
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+.button.-inline {
+  border: none;
+  background-color: transparent;
+  color: var(--clr-primary);
+  font-size: inherit;
+  border-bottom: 1px solid currentColor; //merma cor do texto
+  padding-bottom: 2px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    color: var(--clr-gray-dark-1);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// LOGO
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+.logo {
+  height: 3.25rem;
+  margin-left: 2rem;
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// SEARCH BOX
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+.search-bar {
+  flex: 0 0 40%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > .input {
+    width: 90%;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--clr-gray-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 10rem;
+    transition: all 0.4s;
+    //ícone fica acima do input
+    margin-right: -3.25rem;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--clr-gray-light-3);
+    }
+
+    &:focus + .button {
+      background-color: var(--clr-gray-light-3);
+    }
+
+    &::placeholder {
+      font-weight: 100;
+      color: var(--clr-light-gray-4);
+    }
+  }
+
+  > .button {
+    border: none;
+    background-color: var(--clr-gray-light-2);
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  > .button .icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--clr-gray-dark-3);
+  }
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// USER NAV
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+.user-nav {
+  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+  > .box {
+    height: 100%;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    &:hover {
+      background-color: var(--clr-gray-light-2);
+    }
+  }
+
+  > .box .icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    fill: var(--clr-gray-dark-3);
+  }
+
+  > .box .notification {
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--clr-primary);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  > .box .photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// SIDEBAR NAV
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.side-nav {
+  list-style: none;
+  margin-top: 3.5rem;
+
+  > .item {
+    position: relative;
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  //animação do item do menu
+  > .item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--clr-primary);
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
+    z-index: 1;
+  }
+  > .item:hover::before,
+  > .item.-active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+  > .item:active::before {
+    background-color: var(--clr-primary-light);
+  }
+  //-------------------------
+
+  > .item .link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    &:link,
+    &:visited {
+      color: var(--clr-gray-light-1);
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 1.5rem 3rem;
+    }
+
+    &:hover {
+      color: var();
+    }
+  }
+
+  > .item .link .icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor; //utiliza a cor definida no elemento ou no parent
+  }
+
+  > .item .link .text {
+    font-size: 1.4rem;
+  }
+}
+
+.legal-text {
+  font-size: 1.2rem;
+  color: var(--clr-gray-light-4);
+  text-align: center;
+  padding: 2.5rem;
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// GALLERY
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+.hotel-gallery {
+  display: flex;
+  > .photo .image {
+    width: 100%;
+    display: block;
+  }
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// HOTEL DETAILS
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+.hotel-details {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--clr-gray-light-2);
+
+  > .name {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem;
+  }
+
+  > .rating {
+    margin-right: auto;
+    display: flex;
+  }
+
+  > .location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  > .rating .icon,
+  > .location .icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--clr-primary);
+  }
+
+  > .location .icon {
+    margin-right: 0.5rem;
+  }
+
+  > .points {
+    background-color: var(--clr-primary);
+    color: #fff;
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2.25rem;
+
+    align-self: stretch;
+  }
+
+  > .points .average {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -0.3rem;
+  }
+
+  > .points .count {
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+}
