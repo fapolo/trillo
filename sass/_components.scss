@@ -1,6 +1,55 @@
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // BUTTONS
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+.button.-main {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  background-image: linear-gradient(
+    to right,
+    var(--clr-primary-light),
+    var(--clr-primary-dark)
+  );
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      var(--clr-primary-light),
+      var(--clr-primary-dark)
+    );
+    > .text.-visible {
+      transform: translateY(100%);
+    }
+    > .text.-invisible {
+      top: 0;
+    }
+  }
+
+  > .text {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s;
+
+    &.-visible {
+      padding: 2rem 7.5rem;
+      transform: translateY(0);
+    }
+
+    &.-invisible {
+      padding: 2rem 0;
+      position: absolute;
+      left: 0;
+      top: -100%;
+    }
+  }
+}
+
 .button.-inline {
   border: none;
   background-color: transparent;
@@ -13,9 +62,17 @@
   transition: all 0.2s;
   &:hover {
     color: var(--clr-gray-dark-1);
+    span {
+      margin-left: 8px;
+    }
   }
   &:focus {
     outline: none;
+  }
+
+  span {
+    margin-left: 3px;
+    transition: margin-left 0.2s;
   }
 }
 
@@ -284,5 +341,140 @@
   > .points .count {
     font-size: 1rem;
     text-transform: uppercase;
+  }
+}
+
+.users-recommended {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  color: var(--clr-gray-dark-3);
+
+  > .count {
+    margin-right: auto;
+  }
+
+  > .friends .photo {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-sizing: content-box;
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
+  }
+}
+
+.user-reviews {
+  font-size: 1.4rem;
+
+  > .review {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  //quotation mark
+  > .review::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    z-index: 1;
+    font-size: 20rem;
+    line-height: 1;
+    color: var(--clr-gray-light-2);
+    font-family: sans-serif;
+  }
+
+  > .review .text {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  > .review .user {
+    display: flex;
+    align-items: center;
+  }
+
+  > .review .details {
+    margin-right: auto;
+  }
+
+  > .review .photo {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+  }
+
+  > .review .name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  > .review .date {
+    font-size: 1rem;
+    color: var(--clr-gray-dark-3);
+  }
+
+  > .review .rating {
+    color: var(--clr-primary);
+    font-size: 2.2rem;
+    font-weight: 300;
+  }
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// TEXT/BASE ELEMENTS
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+.list {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: 1px solid var(--clr-gray-light-2);
+  border-bottom: 1px solid var(--clr-gray-light-2);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  > .item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.7rem;
+
+      background-color: var(--clr-primary);
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+    }
+  }
+}
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  > .title {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
   }
 }
